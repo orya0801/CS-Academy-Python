@@ -1,0 +1,1 @@
+( 2 - /bin/bash ; 37 - /usr/sbin/nologin ; 6 - /bin/false ; 1 - /bin/sync ; )
