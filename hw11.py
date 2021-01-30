@@ -1,11 +1,10 @@
 import string 
 
-CHARS = string.ascii_lowercase
-CHAR_LIST = list(DICT)
+CHAR_RANGE = string.ascii_lowercase
 
 def letters_range(start, stop, step=1):
-    start_i = CHAR_LIST.index(start)
-    stop_i = CHAR_LIST.index(stop)
+    start_i = CHAR_RANGE.index(start)
+    stop_i = CHAR_RANGE.index(stop)
 
     return list(CHARS[start_i:stop_i:step])
 

@@ -71,6 +71,9 @@ def main():
     group_users_column = get_column(group, 3)
     users_set = get_set_of_group_users(group_users_column)
 
+    print(group_names_column)
+    print(group_users_column)
+    print(users_set)
 
 if __name__ == "__main__":
     main()
