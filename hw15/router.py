@@ -43,7 +43,7 @@ def remove_ip_address_decorator(remove_ip_address):
     def wrapper(self, interface_name):
         ip_address = remove_ip_address(self, interface_name)
 
-        if ip_Address is not None:
+        if ip_address is not None:
             print(f"Removing ip-address {ip_address} {interface_name}")
 
     return wrapper
@@ -100,12 +100,13 @@ class Router:
             
             self.routes.pop(route)
             return self.ip_addresses.pop(interface_name)
+
         except ValueError:
             return None
 
     def show_ip_addresses(self):
         print("IP Addresses:\nIF:\tIP:")
-        
+
         for k,v in self.ip_addresses.items():
             print(f"{k}\t{v}")
 
@@ -140,10 +141,3 @@ class Router:
             counter += 1
 
 
-r1 = Router()
-r1.add_ip_address('192.168.5.14/24', "eth1")
-r1.add_ip_route('172.16.0.0/16', '192.168.5.1') # ok
-r1.add_ip_route('172.16.0.0/16', '172.168.8.1') # exception
-r1.add_ip_route('172.24.0.0/16', '172.16.8.1')  # ok
-r1.show_ip_addresses()
-r1.show_ip_routes()
