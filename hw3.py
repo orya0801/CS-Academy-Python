@@ -24,7 +24,7 @@ def print_result(wdict, max_count):
             print("{0} - {1}".format(k, v))
 
 def main():
-    string = input()
+    string = input("Enter text: ")
     wdict, max_count = get_dict(string)
     print_result(wdict, max_count)
 
