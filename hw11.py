@@ -1,4 +1,4 @@
-import string 
+import string
 
 CHARS = string.ascii_lowercase
 
@@ -17,6 +17,6 @@ def main():
     print(letters_range('p', 'g', -2))
     print(letters_range('a', 'a'))
 
-    
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()

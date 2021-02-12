@@ -2,6 +2,7 @@
     Результат работы программы находится в файле /files/output.txt
 """
 
+
 # Чтение файла и преобразование файла в двумерный список
 def read_file_line_by_line(path):
     with open(path, 'r') as f:
@@ -14,6 +15,7 @@ def read_file_line_by_line(path):
 
     return list_params
 
+
 # Выбираем данные из нужного столбца двумерного списка
 def get_column(list_params, n):
     column = []
@@ -22,6 +24,7 @@ def get_column(list_params, n):
         column.append(l[n])
 
     return column
+
 
 # Считаем количество пользователей каждой оболчки
 def count_users(column):
@@ -34,22 +37,23 @@ def count_users(column):
 
     return count_dict
 
+
 # Формируем строку из словаря и записываем ее в файл
 def print_result_to_file_1(res_dict):
     final_str = "("
 
     for v, k in res_dict.items():
         final_str += " {0} - {1} ;".format(k, v)
-    
+
     final_str += " )"
-    
+
     with open("files/output.txt", "w") as f:
         f.write(final_str)
 
 
 def get_dict_groups_with_users_uid(group, passwd):
     res_dict = {}
-    
+
     for elem in group:
         group_name = elem[0]
         group_id = elem[2]
@@ -59,10 +63,11 @@ def get_dict_groups_with_users_uid(group, passwd):
         for elem_pswd in passwd:
             if group_id == elem_pswd[3] or elem_pswd[0] in users:
                 users_uids.append(elem_pswd[2])
-        
+
         res_dict.update({group_name: users_uids})
 
     return res_dict
+
 
 def print_result_to_file_2(group_users_uids):
     res_str = "("
@@ -75,7 +80,6 @@ def print_result_to_file_2(group_users_uids):
 
     with open("files/output.txt", "a") as f:
         f.write(f"\n{res_str}")
-
 
 
 def main():
@@ -93,6 +97,7 @@ def main():
     # uid-ы пользователей всех групп файла /etc/group
     group_users_uid = get_dict_groups_with_users_uid(group, passwd)
     print_result_to_file_2(group_users_uid)
+
 
 if __name__ == "__main__":
     main()
